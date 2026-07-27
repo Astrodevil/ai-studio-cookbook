@@ -23,7 +23,7 @@ import os
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.tokenfactory.us-central1.nebius.com/v1/",
+    base_url="https://api.tokenfactory.nebius.com/v1/",
     api_key=os.environ.get("NEBIUS_API_KEY")
 )
 
@@ -36,7 +36,24 @@ print(response.choices[0].message.content)
 
 ## Try it Out
 
-[▶ Try it in the Token Factory Playground](https://tokenfactory.nebius.com/playground?models=moonshotai/Kimi-K3)
+[▶ Try it in the Token Factory Playground](https://tokenfactory.nebius.com/endpoints?modals=endpoint-details&model-id=moonshotai/Kimi-K3)
+
+**sample code** : [kimi-k3-1.ipynb](kimi-k3-1.ipynb)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nebius/token-factory-cookbook/blob/main/models/kimi-k3-1.ipynb)
+
+Run it locally as follows
+
+```bash
+# prepare .env file
+cp  .env.example  .env
+# Add your NEBIUS_API_KEY to .env
+
+# run the notebook
+uv run jupyter lab kimi-k3-1.ipynb
+```
+
+
 
 ## TL;DR
 
