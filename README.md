@@ -70,7 +70,7 @@ Join [Office Hour](office-hours/README.md) online.
 
 Checkout the latest [model guides and sample code](models/README.md).
 
-**Featuring:** [DeepSeek V4 Pro](models/deepseek-v4.md) &nbsp;•&nbsp; [GLM-5.1](models/glm5.1.md) &nbsp;•&nbsp; [Qwen3.5-397B-A17B](models/qwen3.5.md) &nbsp;•&nbsp; [Kimi-K2.5](models/kimi-k2.5.md) &nbsp;•&nbsp; [Nemotron family](models/nemotron/README.md)
+**Featuring:** [Kimi-K3](models/kimi-k3.md) &nbsp;•&nbsp; [DeepSeek V4 Pro](models/deepseek-v4.md) &nbsp;•&nbsp; [GLM-5.2](models/glm-5.2.md) &nbsp;•&nbsp; [Qwen3.5-397B-A17B](models/qwen-3.5.md) &nbsp;•&nbsp; [Nemotron family](models/nemotron/README.md)
 
 ---
 

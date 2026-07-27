@@ -63,4 +63,4 @@ See official benchmarks on the [GLM-5 HuggingFace page](https://huggingface.co/z
 
 - [GLM-5 on HuggingFace](https://huggingface.co/zai-org/GLM-5)
 - [Z.ai Blog](https://z.ai/blog)
-- [GLM-4.5 guide](glm4.5.md) — predecessor with detailed benchmarks
+- [GLM-4.5 guide](glm-4.5.md) — predecessor with detailed benchmarks
