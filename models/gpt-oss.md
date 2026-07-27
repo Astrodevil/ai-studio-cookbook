@@ -43,7 +43,7 @@ GPT OSS is a hugely anticipated open-weights release by OpenAI, designed for pow
 
 **OpenSource**
 
-**GPT-OSS** is OpenAI's open source model release since GPT-2 (released in 2019).  That's over 6 years!
+**GPT-OSS** is OpenAI's first open source model release since GPT-2 (released in 2019).  That's over 6 years!
 
 **Benchmark beaters**:
 

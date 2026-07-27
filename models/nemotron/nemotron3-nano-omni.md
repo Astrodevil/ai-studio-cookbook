@@ -43,7 +43,7 @@ Nemotron-3-Nano-Omni is NVIDIA's compact multimodal model, supporting vision, vi
 
 - **Provider:** NVIDIA
 - **Architecture:** Nano family
-- **Context window:** 128K tokens
+- **Context window:** 262K tokens
 - **Strengths:** Multimodal (vision, video, text), edge deployment, on-device AI
 - **License:** NVIDIA Open Model License
 

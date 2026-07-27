@@ -43,7 +43,7 @@ Nemotron-3-Super-120B-A12B is NVIDIA's enterprise-optimized MoE model, balancing
 
 - **Provider:** NVIDIA
 - **Architecture:** Mixture-of-Experts (MoE) — 120B total / 12B active parameters
-- **Context window:** 128K tokens
+- **Context window:** 256K tokens
 - **Strengths:** Enterprise inference, instruction following, tool use, low latency
 - **License:** NVIDIA Open Model License
 
