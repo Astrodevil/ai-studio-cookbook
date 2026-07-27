@@ -57,7 +57,7 @@ uv run jupyter lab kimi-k3-1.ipynb
 
 ## TL;DR
 
-Kimi K3 is Moonshot AI's flagship reasoning model, released July 16, 2026 — a major step up in intelligence over the Kimi K2.5 / K2.6 / K2.7 lineage, with multimodal (text + image) input and a 1M-token context window.
+Kimi K3 is Moonshot AI's flagship reasoning model, released July 2026 — a major step up in intelligence over the Kimi K2.5 / K2.6 / K2.7 lineage, with multimodal (text + image) input and a 1M-token context window.
 
 - **Provider:** Moonshot AI (Kimi)
 - **Architecture:** Proprietary — 2.8T parameters
