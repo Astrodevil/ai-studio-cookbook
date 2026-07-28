@@ -17,7 +17,7 @@ Check out [all coding integrations](https://docs.tokenfactory.nebius.com/integra
 
 ## Prerequisites
 
-- A [Token Factory](https://docs.tokenfactory.nebius.com/) account and API key.
+- A [Token Factory](https://tokenfactory.nebius.com/) account and API key.
 - A supported coding agent installed (Cursor, Cline, Claude Code, Codex, or OpenCode).
 
 ## Top Coding Models @ Token Factory
