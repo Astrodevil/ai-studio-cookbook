@@ -43,7 +43,7 @@ Nemotron-3-Nano-30B-A3B is a small, efficient MoE model from NVIDIA, designed fo
 
 - **Provider:** NVIDIA
 - **Architecture:** Mixture-of-Experts (MoE) — 30B total / 3B active parameters
-- **Context window:** 128K tokens
+- **Context window:** 262K tokens
 - **Strengths:** Edge inference, cost efficiency, low latency
 - **License:** NVIDIA Open Model License
 

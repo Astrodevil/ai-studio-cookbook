@@ -1,9 +1,10 @@
-# 🚀 Token Factory Builder Hour
+# 🚀 Token Factory Office Hour
 
+[📅 Jump to schedule](#-schedule)
 
-<img src="builder-hour-1.png" style="width: 300px; float:right;">
+<img src="images/builder-hour-1.png" style="width: 300px; float:right;">
 
-Token Factory Builder Hour is an **engaging live session** where builders and developers come together to share knowledge through interactive conversations and hands-on demos.
+Token Factory Office Hour is an **engaging live session** where builders and developers come together to share knowledge through interactive conversations and hands-on demos.
 
 ### 🤝 Why Join Us?
 - 🚀 **Network** with fellow builders and tech enthusiasts
@@ -32,7 +33,7 @@ We'd love to have you join us!
 ## 📚 Resources
 
 - 🔧 **Code Repository**: [Token Factory Cookbook](https://github.com/nebius/token-factory-cookbook)
-- 💬 **Community Chat**: [Join Discord](https://discord.gg/nN58zxSTFR) → [Builder Hour Channel](https://discord.com/channels/1222156136380235877/1445865431838490676)
+- 💬 **Community Chat**: [Join Discord](https://discord.gg/nN58zxSTFR) → [Office Hour Channel](https://discord.com/channels/1222156136380235877/1445865431838490676)
 
 ---
 
@@ -40,10 +41,11 @@ We'd love to have you join us!
 
 (latest first)
 
-| # | Date | Topic | Status |
-|---|------|-------|--------|
-| 2 | 2026-Feb |  Upcoming Session | ⏳ TBD |
-| 1 | 2025-12-09 |  Launch Event! <br> - What's new in Token Factory<br> - Demos by Studio1 Team | ✅ Completed.<br>[notes](1.md) |
+| # | Date | Topic | Notes |
+|---|------|-------|-------|
+| 3 | 2026 July 23 | - Token factory updates <br> - nebuis builder program <br> - Nebius fellows | [notes](03.md) |
+| 2 | 2026 Feb 18| - Building reliable agents<br> - coding with token factory<br> - partner chat | [notes](02.md) |
+| 1 | 2025 Dec 09 | Launch Event! <br> - What's new in Token Factory<br> - Demos by Studio1 Team | [notes](01.md) |
 
 ---
 

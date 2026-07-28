@@ -21,8 +21,8 @@
 
 [Try it in the Token Factory playground](https://tokenfactory.nebius.com/playground?models=zai-org/GLM-4.5-Air)  (GLM-4.5-Air)
 
-Try with API:  [glm4.5_1.ipynb](glm4.5_1.ipynb)  &nbsp; 
-[![Launch in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nebius/token-factory-cookbook/blob/main/models/glm4.5_1.ipynb)
+Try with API:  [glm_4.5_1.ipynb](glm_4.5_1.ipynb)  &nbsp; 
+[![Launch in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nebius/token-factory-cookbook/blob/main/models/archived/glm_4.5_1.ipynb)
 
 ## TL;DR
 
@@ -54,14 +54,14 @@ Within just a couple of weeks, the crown of "best open-source model" went from K
 
 ### Official benchmarks
 
-| ![](images/glem4.5-bench-1.png)
+| ![](../images/glem4.5-bench-1.png)
 |-
 
 [See more here](https://huggingface.co/zai-org/GLM-4.5)
 
 ### Artificial Analysis Benchmark
 
-| ![](images/glm4.5-bench-2.png)
+| ![](../images/glm4.5-bench-2.png)
 |-
 
 [AA analysis](https://artificialanalysis.ai/models/glm-4.5)
@@ -74,25 +74,25 @@ Prompt:
 
 > Generate an SVG of a pelican riding a bicycle
 
-You can see our full pelican tests [here](../fun/pelican-riding-bicycle/).
+You can see our full pelican tests [here](../../fun/pelican-riding-bicycle/).
 
 So how does GLM do?  Let's see.
 
 **GLM-4.5** 
 
-| ![](images/GLM4.5-pelican-1.png)
+| ![](../images/GLM4.5-pelican-1.png)
 |-
 
 **GLM-4.5-Air** 
 
-| ![](images/GLM4.5-air-pelican-1.png)
+| ![](../images/GLM4.5-air-pelican-1.png)
 |-
 
 #### Comparing against other SOTA OS models
 
 **glm-4.5  vs gpt-oss  vs qwen3-235B-2507 vs  deepseek-r1-0528**
 
-|![](images/gpt-oss-120b_vs_qwen3-2507_vs_deepseek-r1-0528_vs_glm-4.5.png)
+|![](../images/gpt-oss-120b_vs_qwen3-2507_vs_deepseek-r1-0528_vs_glm-4.5.png)
 |-
 
 

@@ -36,7 +36,7 @@ A collection of guides and examples for building intelligent applications with o
 ## 😎 Featured
 
 - [Token Factory Workshop](workshops/token-factory-workshop/README.md)
-- [Builder Hour](builder-hour/README.md) &nbsp;•&nbsp; [Events](community/events.md) supported by Nebius AI
+- [Office Hours](office-hours/README.md) &nbsp;•&nbsp; [Events](community/events.md) supported by Nebius AI
 - [LangChain deep agent examples](agents/langchain/README.md)
 - [Community contributions](community/README.md)
 - [Post training examples](post-training/)
@@ -50,7 +50,7 @@ A collection of guides and examples for building intelligent applications with o
 
 Network, learn, and build with fellow builders - including hackathons, workshops, and community events.
 
-Join [Builder Hour](builder-hour/README.md) online.
+Join [Office Hour](office-hours/README.md) online.
 
 [Events / hackathons / workshops](community/events.md)
 
@@ -70,7 +70,7 @@ Join [Builder Hour](builder-hour/README.md) online.
 
 Checkout the latest [model guides and sample code](models/README.md).
 
-**Featuring:** [DeepSeek V4 Pro](models/deepseek-v4.md) &nbsp;•&nbsp; [GLM-5.1](models/glm5.1.md) &nbsp;•&nbsp; [Qwen3.5-397B-A17B](models/qwen3.5.md) &nbsp;•&nbsp; [Kimi-K2.5](models/kimi-k2.5.md) &nbsp;•&nbsp; [Nemotron family](models/nemotron/README.md)
+**Featuring:** [Kimi-K3](models/kimi-k3.md) &nbsp;•&nbsp; [DeepSeek V4 Pro](models/deepseek-v4.md) &nbsp;•&nbsp; [GLM-5.2](models/glm-5.2.md) &nbsp;•&nbsp; [Qwen3.5-397B-A17B](models/qwen-3.5.md) &nbsp;•&nbsp; [Nemotron family](models/nemotron/README.md)
 
 ---
 
@@ -120,6 +120,7 @@ Guides for connecting third-party tools to Token Factory:
 
 - [OpenClaw](integrations/openclaw/README.md) — self-hosted AI agents on open models
 - [Tavily](integrations/tavily/README.md) — LLM-optimized search API for agentic research
+- [Pixeltable](integrations/pixeltable/README.md) — multimodal AI data infrastructure with native Token Factory chat + embeddings
 
 See also the official catalog: [docs.tokenfactory.nebius.com/integrations](https://docs.tokenfactory.nebius.com/integrations/overview)
 

@@ -21,7 +21,7 @@
 
 [Try it in the Token Factory playground](https://tokenfactory.nebius.com/playground?models=openai/gpt-oss-20b)  (20B model)
 
-Try with API:  [gpt_oss_1.ipynb](qwen3_2507_1.ipynb)  &nbsp; 
+Try with API:  [gpt_oss_1.ipynb](gpt_oss_1.ipynb)  &nbsp; 
 [![Launch in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nebius/token-factory-cookbook/blob/main/models/gpt_oss_1.ipynb)
 
 ## TL;DR
@@ -43,7 +43,7 @@ GPT OSS is a hugely anticipated open-weights release by OpenAI, designed for pow
 
 **OpenSource**
 
-**GPT-OSS** is OpenAI's open source model release since GPT-2 (released in 2019).  That's over 6 years!
+**GPT-OSS** is OpenAI's first open source model release since GPT-2 (released in 2019).  That's over 6 years!
 
 **Benchmark beaters**:
 
