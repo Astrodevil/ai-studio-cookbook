@@ -2,7 +2,7 @@
 
 Token Factory has integrations with many coding agents and allows you to run state of the art open source models.
 
-Checkout [all coding integrations](https://docs.tokenfactory.nebius.com/integrations/overview#coding-assistants) for instrcutions
+Checkout [all coding integrations](https://docs.tokenfactory.nebius.com/integrations/overview#coding-assistants) for instructions
 
 ## Top Coding Models @ Token Factory
 
@@ -20,7 +20,7 @@ Checkout [all coding integrations](https://docs.tokenfactory.nebius.com/integrat
 | Cursor | Native | [notes](#cursor) |
 | Cline | Native | [notes](#cline) |
 | Claude Code | via Proxy | [notes](#claude-code)|
-| Codex | via Proxy | [notes](#claude-code)|
+| Codex | via Proxy | [notes](#codex) |
 | OpenCode | Native | [notes](#open-code)|
 
 
