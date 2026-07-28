@@ -1,8 +1,24 @@
 # Using Token Factory Models with Coding Agents
 
-Token Factory has integrations with many coding agents and allows you to run state of the art open source models.
+Token Factory has integrations with many coding agents and allows you to run state-of-the-art open-source models.
 
-Checkout [all coding integrations](https://docs.tokenfactory.nebius.com/integrations/overview#coding-assistants) for instructions
+Check out [all coding integrations](https://docs.tokenfactory.nebius.com/integrations/overview#coding-assistants) for instructions.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Top Coding Models](#top-coding-models)
+- [Coding Agent Integrations](#coding-agent-integrations)
+- [Cursor](#cursor)
+- [Cline](#cline)
+- [Claude Code](#claude-code)
+- [Codex](#codex)
+- [OpenCode](#opencode)
+
+## Prerequisites
+
+- A [Token Factory](https://docs.tokenfactory.nebius.com/) account and API key.
+- A supported coding agent installed (Cursor, Cline, Claude Code, Codex, or OpenCode).
 
 ## Top Coding Models @ Token Factory
 
@@ -21,29 +37,23 @@ Checkout [all coding integrations](https://docs.tokenfactory.nebius.com/integrat
 | Cline | Native | [notes](#cline) |
 | Claude Code | via Proxy | [notes](#claude-code)|
 | Codex | via Proxy | [notes](#codex) |
-| OpenCode | Native | [notes](#open-code)|
+| OpenCode | Native | [notes](#opencode)|
 
 
 ## Cursor
 
 Native integration.
 
-[instructions](https://docs.tokenfactory.nebius.com/integrations/coding/cursor)
-
-demo:
-
- [![Alt text](https://img.youtube.com/vi/wsLn2vZdrHw/0.jpg)](https://www.youtube.com/watch?v=wsLn2vZdrHw)
+- [instructions](https://docs.tokenfactory.nebius.com/integrations/coding/cursor)
+- [🎥 howto video](https://www.youtube.com/watch?v=wsLn2vZdrHw)
 
 
 ## Cline
 
-Native integration
+Native integration.
 
-[instructions](https://docs.tokenfactory.nebius.com/integrations/coding/cline)
-
-demo:
-
-[![Alt text](https://img.youtube.com/vi/q-oCalBP6lk/0.jpg)](https://www.youtube.com/watch?v=q-oCalBP6lk)
+- [instructions](https://docs.tokenfactory.nebius.com/integrations/coding/cline)
+- [🎥 howto video](https://www.youtube.com/watch?v=q-oCalBP6lk)
 
 
 ## Claude Code
@@ -63,9 +73,10 @@ Integrates using following proxies
 - [Claude Codex proxy server](https://github.com/KiranChilledOut/claude-codex-nebius-proxy)
 - [Nebius TF Relay](https://nebius-tf-relay.vercel.app/)
 
-## Open Code
+## OpenCode
 
-Native integration.
+Native integration with Token Factory!
+- [🎥 howto video](https://www.youtube.com/watch?v=216_T--JE0k)
 
-Optionally, you can use this proxy : [Nebius TF Relay](https://nebius-tf-relay.vercel.app/)
+Optionally, you can use this proxy: [Nebius TF Relay](https://nebius-tf-relay.vercel.app/)
 
