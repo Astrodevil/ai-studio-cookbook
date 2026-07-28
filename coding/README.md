@@ -28,22 +28,16 @@ Checkout [all coding integrations](https://docs.tokenfactory.nebius.com/integrat
 
 Native integration.
 
-[instructions](https://docs.tokenfactory.nebius.com/integrations/coding/cursor)
-
-demo:
-
- [![Alt text](https://img.youtube.com/vi/wsLn2vZdrHw/0.jpg)](https://www.youtube.com/watch?v=wsLn2vZdrHw)
+- [instructions](https://docs.tokenfactory.nebius.com/integrations/coding/cursor)
+- [howto video](https://www.youtube.com/watch?v=wsLn2vZdrHw)
 
 
 ## Cline
 
 Native integration
 
-[instructions](https://docs.tokenfactory.nebius.com/integrations/coding/cline)
-
-demo:
-
-[![Alt text](https://img.youtube.com/vi/q-oCalBP6lk/0.jpg)](https://www.youtube.com/watch?v=q-oCalBP6lk)
+- [instructions](https://docs.tokenfactory.nebius.com/integrations/coding/cline)
+- [howto video](https://www.youtube.com/watch?v=q-oCalBP6lk)
 
 
 ## Claude Code
@@ -63,7 +57,8 @@ Integrates using following proxies
 
 ## Open Code
 
-Native integration.
+Native integration with Token Factory!
+- [howto video](https://www.youtube.com/watch?v=216_T--JE0k)
 
 Optionally, you can use this proxy : [Nebius TF Relay](https://nebius-tf-relay.vercel.app/)
 
