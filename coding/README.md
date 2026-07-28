@@ -48,6 +48,8 @@ demo:
 
 ## Claude Code
 
+### Using Claude Code with Proxy Server
+
 Integrates using following proxies
 
 - [Claude Codex proxy server](https://github.com/KiranChilledOut/claude-codex-nebius-proxy)
