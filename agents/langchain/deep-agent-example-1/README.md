@@ -16,7 +16,7 @@ Deep agents extend a regular tool-calling agent with:
 | `research_agent_1.py` | Bare deep agent — planning, virtual FS, and a default `general-purpose` sub-agent. No external tools. | none |
 | `tavily_agent.py` | Same deep-agent loop, but with real web search via Tavily. | `tavily_search`, `think_tool` |
 
-Both use the `moonshotai/Kimi-K2.5` model on Nebius; swap it for any tool-calling capable Nebius model in the source.
+Both scripts use tool-calling capable Nebius models via `langchain-nebius` and are currently configured with `MiniMaxAI/MiniMax-M3`. Swap either model in the source.
 
 ## Setup
 
@@ -38,12 +38,9 @@ Edit `.env`:
 ```bash
 # https://tokenfactory.nebius.com/
 NEBIUS_API_KEY=your-nebius-api-key
-
-# https://tavily.com/  (only needed for tavily_agent.py)
-TAVILY_API_KEY=your-tavily-api-key   
 ```
 
-## Run
+## Run Agent
 
 Bare deep agent (no external tools):
 
@@ -51,16 +48,25 @@ Bare deep agent (no external tools):
 uv run python research_agent_1.py
 ```
 
-Deep agent with Tavily web search:
+The report is written to `output.md`, and a short summary is printed to stdout. You can view a sample output [here](output-sample.md).
 
-(Make sure you have `TAVILY_API_KEY` defined in `.env`)
+## Run Agent with Tavily Real time Search
+
+Add Tavily API key to `.env` file
+
+```bash
+# https://tavily.com/  (only needed for tavily_agent.py)
+TAVILY_API_KEY=your-tavily-api-key
+```
+
+Deep agent with Tavily web search:
 
 ```bash
 uv run python tavily_agent.py
 ```
 
-Each script prints the full message trace (including planning steps,
-sub-agent calls, and the final report) as JSON.
+`tavily_agent.py` prints the full message trace
+(including planning steps, sub-agent calls, and the final report) as JSON.
 
 ## Files
 

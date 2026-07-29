@@ -196,7 +196,7 @@ When the brief is saved, reply with a short confirmation message and stop.
 """
 
 
-def build_agent(model_name: str = "moonshotai/Kimi-K2.5"):
+def build_agent(model_name: str = "moonshotai/Kimi-K2.6"):
     """Construct the competitive-intelligence deep agent.
 
     Args:

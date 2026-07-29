@@ -1009,7 +1009,7 @@ with st.sidebar:
 
     model = st.text_input(
         "Model",
-        value="moonshotai/Kimi-K2.5",
+        value="moonshotai/Kimi-K2.6",
         help="Any tool-calling capable model served by Nebius Token Factory.",
     )
 
