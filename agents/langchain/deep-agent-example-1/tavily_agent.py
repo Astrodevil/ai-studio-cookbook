@@ -9,8 +9,7 @@ load_dotenv()
 from research_agent.tools import tavily_search, think_tool
 
 model = ChatNebius(
-    # model="Qwen/Qwen3 -30B-A3B-Instruct-2507",
-    model="moonshotai/Kimi-K2.5"
+    model="MiniMaxAI/MiniMax-M3"
 )
 
 agent = create_deep_agent(
