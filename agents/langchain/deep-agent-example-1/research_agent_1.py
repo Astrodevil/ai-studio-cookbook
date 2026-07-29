@@ -28,7 +28,7 @@ def extract_clean_markdown(text: str) -> str:
     # Drop any stray artifact tags or lines.
     text = re.sub(r"<[/]?content>", "", text)
     lines = [
-        line
+        line.lstrip()
         for line in text.splitlines()
         if not line.strip().startswith(("<tool_call", "[<]minimax", "]<]minimax"))
     ]
