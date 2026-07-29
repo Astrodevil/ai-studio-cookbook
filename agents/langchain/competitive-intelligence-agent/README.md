@@ -69,13 +69,13 @@ You'll see every step rendered live in the terminal: plan updates, tool calls, s
 
 ```bash
 uv run cli.py "Linear" \
-  --model "moonshotai/Kimi-K2.5" \
+  --model "moonshotai/Kimi-K2.6" \
   --output ./linear-brief.md
 ```
 
 | Flag                 | Default                  | Notes                                         |
 | -------------------- | ------------------------ | --------------------------------------------- |
-| `--model`, `-m`      | `moonshotai/Kimi-K2.5`   | Any tool-calling capable Nebius TF model.     |
+| `--model`, `-m`      | `moonshotai/Kimi-K2.6`   | Any tool-calling capable Nebius TF model.     |
 | `--output`, `-o`     | `./brief-<company>.md`   | Where to save the final markdown brief.       |
 | `--recursion-limit`  | `150`                    | Bump if the agent runs out of LangGraph steps.|
 

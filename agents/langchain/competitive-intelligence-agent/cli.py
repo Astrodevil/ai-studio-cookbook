@@ -237,7 +237,7 @@ def main(
             "-m",
             help="Any tool-calling capable model served by Nebius Token Factory.",
         ),
-    ] = "moonshotai/Kimi-K2.5",
+    ] = "moonshotai/Kimi-K2.6",
     output: Annotated[
         Path,
         typer.Option(
