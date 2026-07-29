@@ -7,7 +7,7 @@ Check out [all coding integrations](https://docs.tokenfactory.nebius.com/integra
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
-- [Top Coding Models](#top-coding-models)
+- [Top Coding Models @ Token Factory](#top-coding-models-token-factory)
 - [Coding Agent Integrations](#coding-agent-integrations)
 - [Cursor](#cursor)
 - [Cline](#cline)
@@ -35,9 +35,9 @@ Check out [all coding integrations](https://docs.tokenfactory.nebius.com/integra
 | --- | --- | --- |
 | Cursor | Native | [notes](#cursor) |
 | Cline | Native | [notes](#cline) |
-| Claude Code | via Proxy | [notes](#claude-code)|
+| Claude Code | via Proxy | [notes](#claude-code) |
 | Codex | via Proxy | [notes](#codex) |
-| OpenCode | Native | [notes](#opencode)|
+| OpenCode | Native | [notes](#opencode) |
 
 
 ## Cursor
@@ -60,7 +60,7 @@ Native integration.
 
 ### Using Claude Code with Proxy Server
 
-Integrates using following proxies
+Integrates using the following proxies:
 
 - [Claude Codex proxy server](https://github.com/KiranChilledOut/claude-codex-nebius-proxy)
 - [Nebius TF Relay](https://nebius-tf-relay.vercel.app/)
@@ -68,7 +68,7 @@ Integrates using following proxies
 
 ## Codex
 
-Integrates using following proxies
+Integrates using the following proxies:
 
 - [Claude Codex proxy server](https://github.com/KiranChilledOut/claude-codex-nebius-proxy)
 - [Nebius TF Relay](https://nebius-tf-relay.vercel.app/)
