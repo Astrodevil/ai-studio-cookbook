@@ -57,8 +57,8 @@ START ─▶│  plan  │ ──▶ │ research │ ──▶ │ reflect │ 
 ### Installation
 
 ```bash
-git clone https://github.com/Arindam200/ai-studio-cookbook.git
-cd ai-studio-cookbook/agents/langchain/meeting_briefing_agent
+git clone https://github.com/nebius/token-factory-cookbook
+cd token-factory-cookbook/agents/langchain/meeting_briefing_agent
 
 uv sync          # or: pip install -e .
 cp env.example .env   # add your NEBIUS_API_KEY and TAVILY_API_KEY
@@ -110,7 +110,4 @@ meeting_briefing_agent/
 - **Iteration budget:** the reflect→research loop runs at most `max_iterations` times (default 2, configurable) so a run always terminates.
 - **Evidence dedupe:** sources are deduplicated by URL across all research passes.
 
-## 🤝 Contributing
 
-Contributions are welcome through the
-[AI Studio Cookbook repository](https://github.com/Arindam200/ai-studio-cookbook).

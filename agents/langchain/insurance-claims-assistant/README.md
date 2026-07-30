@@ -77,10 +77,13 @@ call returns a single JSON object validated with Pydantic (with a retry on malfo
 
 ```bash
 git clone https://github.com/nebius/token-factory-cookbook/
+
 cd token-factory-cookbook/agents/langchain/insurance-claims-assistant
 
 uv sync                         # or: pip install -r requirements.txt
-cp env.example .env             # then edit .env and set NEBIUS_API_KEY
+
+cp env.example .env             
+# then edit .env and set NEBIUS_API_KEY
 ```
 
 ## Running
