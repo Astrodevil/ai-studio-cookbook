@@ -7,6 +7,25 @@ resolution-markers = [
 ]
 
 [[package]]
+name = "agents-cost-comparison"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "deepagents" },
+    { name = "langchain-nebius" },
+    { name = "langchain-openai" },
+    { name = "python-dotenv" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "deepagents", specifier = ">=0.5.9" },
+    { name = "langchain-nebius", specifier = ">=0.1.3" },
+    { name = "langchain-openai", specifier = ">=0.3.0" },
+    { name = "python-dotenv", specifier = ">=1.2.2" },
+]
+
+[[package]]
 name = "annotated-types"
 version = "0.8.0"
 source = { registry = "https://pypi.org/simple" }
@@ -673,25 +692,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/a3/c3/7203f18c6ca0ff4c65087fe8694511fadc8a0037c37010e43d25b9ecacd8/langsmith-0.10.12.tar.gz", hash = "sha256:e27cace529a5c54546ecdc2d3fa7af6d8a84a5b9333e99b497f47cafffa16ef5", size = 4749918, upload-time = "2026-07-29T14:22:52.335Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/1e/f8/de3b66a9b9212ed41541814d8e062909c009837e650a4c2e43425ee1b43c/langsmith-0.10.12-py3-none-any.whl", hash = "sha256:d280fff7a03ecf612c3fdb172bf716467cfb9c0b9d90661b3523c2d8ee1b9a6e", size = 681040, upload-time = "2026-07-29T14:22:50.372Z" },
-]
-
-[[package]]
-name = "nemotron-agents"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "deepagents" },
-    { name = "langchain-nebius" },
-    { name = "langchain-openai" },
-    { name = "python-dotenv" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "deepagents", specifier = ">=0.5.9" },
-    { name = "langchain-nebius", specifier = ">=0.1.3" },
-    { name = "langchain-openai", specifier = ">=0.3.0" },
-    { name = "python-dotenv", specifier = ">=1.2.2" },
 ]
 
 [[package]]

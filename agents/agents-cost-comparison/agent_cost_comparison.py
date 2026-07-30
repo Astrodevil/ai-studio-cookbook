@@ -16,13 +16,34 @@ load_dotenv()
 # ---------------------------------------------------------------------------
 QUERY = "Research Solar power adoption in US and write a report"
 
-NEMOTRON_MODEL = "nvidia/Nemotron-3-Ultra-550b-a55b"
-NEMOTRON_INPUT_PRICE_PER_1M = 1.00
-NEMOTRON_OUTPUT_PRICE_PER_1M = 3.00
-
-KIMI_MODEL = "moonshotai/Kimi-K3"
-KIMI_INPUT_PRICE_PER_1M = 3.00
-KIMI_OUTPUT_PRICE_PER_1M = 15.00
+# Add or remove models here to compare them in a single run.
+MODELS = [
+    {
+        "name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+        "input_price_per_1m": 1.00,
+        "output_price_per_1m": 3.00,
+    },
+    {
+        "name": "nvidia/nemotron-3-super-120b-a12b",
+        "input_price_per_1m": 0.30,
+        "output_price_per_1m": 0.90,
+    },
+    {
+        "name": "moonshotai/Kimi-K3",
+        "input_price_per_1m": 3.00,
+        "output_price_per_1m": 15.00,
+    },
+    {
+        "name": "MiniMaxAI/MiniMax-M3",
+        "input_price_per_1m": 0.30,
+        "output_price_per_1m": 1.20,
+    },
+    {
+        "name": "moonshotai/Kimi-K2.7-Code",
+        "input_price_per_1m": 0.95,
+        "output_price_per_1m": 4.00,
+    },
+]
 
 RESEARCH_SYSTEM_PROMPT = (
     "You are a deep research agent. You have access to filesystem, shell execution, "
@@ -30,8 +51,6 @@ RESEARCH_SYSTEM_PROMPT = (
     "only on your training data; use the available tools to gather current information "
     "before producing the final report."
 )
-
-
 
 
 # ---------------------------------------------------------------------------
@@ -61,14 +80,20 @@ def extract_clean_markdown(text: str) -> str:
 
 
 def find_best_markdown(messages: list[Any]) -> str:
-    """Choose the longest message content that contains a markdown heading."""
-    best = ""
+    """Choose the longest message content, preferring one that contains a markdown heading."""
+    best_with_heading = ""
+    best_any = ""
     for msg in messages:
         content = getattr(msg, "content", None)
-        if isinstance(content, str) and "# " in content and len(content) > len(best):
-            best = content
+        if not isinstance(content, str):
+            continue
+        if len(content) > len(best_any):
+            best_any = content
+        if "# " in content and len(content) > len(best_with_heading):
+            best_with_heading = content
+    best = best_with_heading or best_any
     if not best:
-        raise RuntimeError("No markdown content found in agent result")
+        raise RuntimeError("No message content found in agent result")
     return best
 
 
@@ -148,7 +173,8 @@ def run_single_agent(
     raw_markdown = find_best_markdown(messages)
     markdown = extract_clean_markdown(raw_markdown).lstrip()
 
-    output_path = Path(f"output_{name.replace('/', '_')}.md")
+    safe_name = name.replace("/", "_")
+    output_path = Path(f"output_{safe_name}.md")
     output_path.write_text(markdown, encoding="utf-8")
     print(f"Wrote report ({len(markdown)} chars) to {output_path}")
 
@@ -169,59 +195,83 @@ def print_model_summary(name: str, metrics: dict[str, int | float], in_price: fl
     print(f"Est. cost:     ${cost:.6f} (@ In ${in_price}/1M, Out ${out_price}/1M)")
 
 
-def print_comparison(
-    metrics_a: dict[str, int | float],
-    name_a: str,
-    in_a: float,
-    out_a: float,
-    metrics_b: dict[str, int | float],
-    name_b: str,
-    in_b: float,
-    out_b: float,
-) -> None:
-    """Print a neatly aligned side-by-side token / cost / tool-call comparison."""
-    cost_a = compute_cost(metrics_a["input_tokens"], metrics_a["output_tokens"], in_a, out_a)
-    cost_b = compute_cost(metrics_b["input_tokens"], metrics_b["output_tokens"], in_b, out_b)
+def print_final_summary(results: list[dict[str, Any]]) -> None:
+    """Print a summary table comparing all model runs."""
+    if not results:
+        print("\n=== Final comparison summary ===")
+        print("No successful model runs to summarize.")
+        return
 
-    labels = [
-        "Metric", "Tool calls", "Input tokens", "Output tokens",
-        "Total tokens", "Elapsed (s)", "Est. cost",
-    ]
-    label_width = max(len(label) for label in labels) + 2
-    col_width = max(len(name_a), len(name_b), 12) + 2
-    rule = "-" * (label_width + 2 * col_width)
+    print("\n=== Final comparison summary ===")
 
-    def _row(label: str, left: str, right: str) -> None:
-        print(f"{label:<{label_width}}{left:>{col_width}}{right:>{col_width}}")
-
-    def _num_row(label: str, left: int, right: int) -> None:
-        print(f"{label:<{label_width}}{left:>{col_width},}{right:>{col_width},}")
-
-    print("\n=== Side-by-side comparison ===")
-    _row("Metric", name_a, name_b)
-    print(rule)
-    _num_row("Tool calls", metrics_a["tool_calls"], metrics_b["tool_calls"])
-    _num_row("Input tokens", metrics_a["input_tokens"], metrics_b["input_tokens"])
-    _num_row("Output tokens", metrics_a["output_tokens"], metrics_b["output_tokens"])
-    _num_row("Total tokens", metrics_a["total_tokens"], metrics_b["total_tokens"])
-    _row(
-        "Elapsed (s)",
-        f"{metrics_a['elapsed_seconds']:.3f}",
-        f"{metrics_b['elapsed_seconds']:.3f}",
+    name_width = max(len(r["name"]) for r in results) + 2
+    label_width = 18
+    header = (
+        f"{'Model':<{name_width}}"
+        f"{'Tool calls':>{label_width}}"
+        f"{'Input tokens':>{label_width}}"
+        f"{'Output tokens':>{label_width}}"
+        f"{'Total tokens':>{label_width}}"
+        f"{'Elapsed (s)':>{label_width}}"
+        f"{'Est. cost':>{label_width}}"
     )
-    _row("Est. cost", f"${cost_a:,.6f}", f"${cost_b:,.6f}")
+    rule = "-" * len(header)
+    print(header)
     print(rule)
 
-    if cost_a < cost_b:
-        delta = cost_b - cost_a
-        pct = (delta / cost_b * 100) if cost_b else 0.0
-        print(f"\n{name_a} is cheaper by ${delta:.6f} ({pct:.1f}%) vs {name_b}.")
-    elif cost_b < cost_a:
-        delta = cost_a - cost_b
-        pct = (delta / cost_a * 100) if cost_a else 0.0
-        print(f"\n{name_b} is cheaper by ${delta:.6f} ({pct:.1f}%) vs {name_a}.")
-    else:
-        print("\nBoth runs have the same estimated cost.")
+    rows = []
+    for r in results:
+        metrics = r["metrics"]
+        cost = compute_cost(
+            metrics["input_tokens"],
+            metrics["output_tokens"],
+            r["input_price"],
+            r["output_price"],
+        )
+        rows.append({
+            "name": r["name"],
+            "tool_calls": metrics["tool_calls"],
+            "input_tokens": metrics["input_tokens"],
+            "output_tokens": metrics["output_tokens"],
+            "total_tokens": metrics["total_tokens"],
+            "elapsed": metrics["elapsed_seconds"],
+            "cost": cost,
+        })
+
+    rows_sorted = sorted(rows, key=lambda x: x["name"])
+
+    for row in rows_sorted:
+        cost_str = f"${row['cost']:.6f}"
+        print(
+            f"{row['name']:<{name_width}}"
+            f"{row['tool_calls']:>{label_width},}"
+            f"{row['input_tokens']:>{label_width},}"
+            f"{row['output_tokens']:>{label_width},}"
+            f"{row['total_tokens']:>{label_width},}"
+            f"{row['elapsed']:>{label_width}.3f}"
+            f"{cost_str:>{label_width}}"
+        )
+
+    print(rule)
+
+    cheapest = min(rows, key=lambda x: x["cost"])
+    fastest = min(rows, key=lambda x: x["elapsed"])
+
+    print(f"\nCheapest: {cheapest['name']}")
+    print(f"  Tool calls:    {cheapest['tool_calls']}")
+    print(f"  Input tokens:  {cheapest['input_tokens']:,}")
+    print(f"  Output tokens: {cheapest['output_tokens']:,}")
+    print(f"  Total tokens:  {cheapest['total_tokens']:,}")
+    print(f"  Elapsed time:  {cheapest['elapsed']:.3f}s")
+    print(f"  Est. cost:     ${cheapest['cost']:.6f}")
+
+    print(f"\nFastest: {fastest['name']}")
+    print(f"  Tool calls:    {fastest['tool_calls']}")
+    print(f"  Input tokens:  {fastest['input_tokens']:,}")
+    print(f"  Output tokens: {fastest['output_tokens']:,}")
+    print(f"  Total tokens:  {fastest['total_tokens']:,}")
+    print(f"  Elapsed time:  {fastest['elapsed']:.3f}s")
+    print(f"  Est. cost:     ${fastest['cost']:.6f}")
 
 
 # ---------------------------------------------------------------------------
@@ -231,47 +281,34 @@ def main() -> None:
     if not os.getenv("NEBIUS_API_KEY"):
         print("Warning: NEBIUS_API_KEY not set in environment / .env")
 
-    # --- Run 1: Nemotron ----------------------------------------------------
-    nemotron_model = ChatNebius(model=NEMOTRON_MODEL)
-    _, nemotron_metrics = run_single_agent(
-        NEMOTRON_MODEL,
-        nemotron_model,
-        QUERY,
-        system_prompt=RESEARCH_SYSTEM_PROMPT,
-    )
-    print_model_summary(
-        NEMOTRON_MODEL,
-        nemotron_metrics,
-        NEMOTRON_INPUT_PRICE_PER_1M,
-        NEMOTRON_OUTPUT_PRICE_PER_1M,
-    )
+    results: list[dict[str, Any]] = []
 
-    # --- Run 2: Moonshot AI Kimi-K3 ----------------------------------------
-    kimi_model = ChatNebius(model=KIMI_MODEL)
-    _, kimi_metrics = run_single_agent(
-        KIMI_MODEL,
-        kimi_model,
-        QUERY,
-        system_prompt=RESEARCH_SYSTEM_PROMPT,
-    )
-    print_model_summary(
-        KIMI_MODEL,
-        kimi_metrics,
-        KIMI_INPUT_PRICE_PER_1M,
-        KIMI_OUTPUT_PRICE_PER_1M,
-    )
+    for model_cfg in MODELS:
+        model_name = model_cfg["name"]
+        in_price = model_cfg["input_price_per_1m"]
+        out_price = model_cfg["output_price_per_1m"]
 
-    # --- Comparison ---------------------------------------------------------
-    print_comparison(
-        nemotron_metrics,
-        NEMOTRON_MODEL,
-        NEMOTRON_INPUT_PRICE_PER_1M,
-        NEMOTRON_OUTPUT_PRICE_PER_1M,
-        kimi_metrics,
-        KIMI_MODEL,
-        KIMI_INPUT_PRICE_PER_1M,
-        KIMI_OUTPUT_PRICE_PER_1M,
-    )
+        try:
+            model = ChatNebius(model=model_name)
+            _, metrics = run_single_agent(
+                model_name,
+                model,
+                QUERY,
+                system_prompt=RESEARCH_SYSTEM_PROMPT,
+            )
+
+            print_model_summary(model_name, metrics, in_price, out_price)
+
+            results.append({
+                "name": model_name,
+                "metrics": metrics,
+                "input_price": in_price,
+                "output_price": out_price,
+            })
+        except Exception as exc:
+            print(f"\n!!! {model_name} failed: {exc}")
+
+    print_final_summary(results)
 
 
 if __name__ == "__main__":
